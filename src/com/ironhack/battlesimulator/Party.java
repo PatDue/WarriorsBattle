@@ -23,17 +23,17 @@ public class Party {
     }
 
     //method to generate a random number of characters within the given boundaries
-    public static void createRandom (Party party) {
+    public void createRandomMembers () {
         Random random = new Random();
         int partySize = random.nextInt(5)+3;
 
         for (int i = 1; i <= partySize; i++ ) {
             if (random.nextBoolean()) {
                 Warrior war1 = new Warrior(5, warriorNames[random.nextInt(24)], random.nextInt(100)+101, true, party, random.nextInt(40)+11, random.nextInt(11)-1);
-                party.addMember(war1);
+                this.addMember(war1);
             } else {
                 Wizard wiz1 = new Wizard(6, wizardNames[random.nextInt(24)], random.nextInt(100) + 101, true, party, random.nextInt(40) + 11, random.nextInt(51) - 1);
-                party.addMember(wiz1);
+                this.addMember(wiz1);
             }
         }
     }
