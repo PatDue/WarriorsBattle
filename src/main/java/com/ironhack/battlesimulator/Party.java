@@ -20,11 +20,13 @@ public class Party {
     //method to give a party its name
     public Party(String partyName) {
         this.party = partyName;
+        System.out.println(this.getPartyName()" enters the battle!");
     }
 
     //method to add an existing character to a party
     public void addMember(Character member) {
         members.add(member);
+        System.out.println(member.getName() + " joined " + this.getPartyName());
     }
 
     //method to get the complete ArrayList of Characters belonging to the party object
