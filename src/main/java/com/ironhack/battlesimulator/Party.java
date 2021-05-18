@@ -20,7 +20,7 @@ public class Party {
     //method to give a party its name
     public Party(String partyName) {
         this.party = partyName;
-        System.out.println(this.getPartyName()" enters the battle!");
+        System.out.println(this.getPartyName() + " enters the battle!");
     }
 
     //method to add an existing character to a party
