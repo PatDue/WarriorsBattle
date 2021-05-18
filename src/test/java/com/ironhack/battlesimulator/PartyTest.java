@@ -19,8 +19,7 @@ class PartyTest {
     @Test
     void addMember() {
         Party testPartyNo1 = new Party("Red Army");
-        Warrior testWarriorNo1 = new Warrior(1,100, "Roland", true, "Red Army", 100, 100);
-        testPartyNo1.addMember(testWarriorNo1);
+        Warrior testWarriorNo1 = new Warrior(1,100, "Roland", true, testPartyNo1, 100, 100);
         assertEquals(testWarriorNo1, testPartyNo1.getMembers().get(0));
     }
 
@@ -37,10 +36,10 @@ class PartyTest {
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outgoingMessages));
         Party testPartyNo1 = new Party("Red Army");
-        Warrior testWarriorNo1 = new Warrior(1,100, "Roland", true, "Red Army", 100, 100);
-        Warrior testWarriorNo2 = new Warrior(2,100, "Conan", true, "Red Army", 95, 105);
-        Wizard testWizardNo1 = new Wizard(3,100, "Siegfried", true, "Red Army", 90, 105);
-        Wizard testWizardNo2 = new Wizard(4,100, "Roy", true, "Red Army", 85, 105);
+        Warrior testWarriorNo1 = new Warrior(100, "Roland", true, testPartyNo1, 100, 100);
+        Warrior testWarriorNo2 = new Warrior(100, "Conan", true, testPartyNo1, 95, 105);
+        Wizard testWizardNo1 = new Wizard(100, "Siegfried", true, testPartyNo1, 90, 105);
+        Wizard testWizardNo2 = new Wizard(100, "Roy", true, testPartyNo1, 85, 105);
         testPartyNo1.showMembers(true);
         assertEquals(expectedOutput, outgoingMessages.toString());
         System.setOut(originalOut);

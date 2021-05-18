@@ -35,11 +35,9 @@ public class Party {
 
             for (int i = 1; i <= partySize; i++ ) {
                 if (random.nextBoolean()) {
-                Warrior war1 = new Warrior(5, random.nextInt(100)+101, warriorNames[random.nextInt(24)],true, party, random.nextInt(40)+11, random.nextInt(11)-1);
-                this.addMember(war1);
+                Warrior war1 = new Warrior(random.nextInt(100)+101, warriorNames[random.nextInt(24)],true, this, random.nextInt(40)+11, random.nextInt(11)-1);
             } else {
-                Wizard wiz1 = new Wizard(6, random.nextInt(100) + 101,wizardNames[random.nextInt(24)],  true, party, random.nextInt(40) + 11, random.nextInt(51) - 1);
-                this.addMember(wiz1);
+                Wizard wiz1 = new Wizard(random.nextInt(100) + 101,wizardNames[random.nextInt(24)],  true, this, random.nextInt(40) + 11, random.nextInt(51) - 1);
             }
         }
     }
