@@ -29,24 +29,30 @@ public class Wizard extends Character implements Attacker {
 
     // Attack Method
     @Override
-    public void attack(Character character) {
-        if (character.getAlive().equals(true)) {
+    public void attack(Character opponent) {
+        if (opponent.getAlive().equals(true)) {
             if (mana >= 5) {
                 System.out.println("Wizard " + this.getName() + " throws a Fireball, with a damage of " + intelligence + " Health Points");
                 mana = mana - 5;
-                int newHp = character.getHp() - intelligence;
+                int newHp = opponent.getHp() - intelligence;
                 if (newHp > 0) {
-                    character.setHp(newHp);
+                    opponent.setHp(newHp);
                 } else {
-                    character.setHp(0);
-                    System.out.println("Wizard " + this.getName() + " killed " + character.getName());
-                    character.setAlive(false);
+                    opponent.setHp(0);
+                    System.out.println("Wizard " + this.getName() + " killed " + opponent.getName());
+                    opponent.setAlive(false);
                 }
             } else {
                 System.out.println("Wizard " + this.getName() + " lands a Staff hit, with a damage of " + 2 + " Health Points");
-                int newHp = character.getHp() - 2;
-                character.setHp(newHp);
                 mana = mana + 1;
+                int newHp = opponent.getHp() - 2;
+                if (newHp > 0) {
+                    opponent.setHp(newHp);
+                } else {
+                    opponent.setHp(0);
+                    System.out.println("Wizard " + this.getName() + " killed " + opponent.getName());
+                    opponent.setAlive(false);
+                }
             }
         } else {
             System.out.println("Wizard " + this.getName() + " don´t fight dead people");

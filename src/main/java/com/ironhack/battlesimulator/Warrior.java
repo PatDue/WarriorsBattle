@@ -44,9 +44,15 @@ public class Warrior extends Character implements Attacker {
                 }
             } else {
                 System.out.println("Warrior " + this.getName() + " lands Weak Attack, with a damage of " + strength / 2 + " Health Points");
-                int newHp = opponent.getHp() - strength / 2;
-                opponent.setHp(newHp);
                 stamina = stamina + 1;
+                int newHp = opponent.getHp() - strength / 2;
+                if (newHp > 0) {
+                    opponent.setHp(newHp);
+                } else {
+                    opponent.setHp(0);
+                    System.out.println("Warrior " + this.getName() + " killed " + opponent.getName());
+                    opponent.setAlive(false);
+                }
             }
         } else {
             System.out.println("Warrior " + this.getName() + " think that it isn't necessary to fight a dead one");
