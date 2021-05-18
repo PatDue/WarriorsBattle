@@ -5,14 +5,14 @@ public abstract class Character {
     private int hp;
     private String name;
     private Boolean isAlive;
-    private String partyName;
+    private Party party;
 
-    public Character(int id, int hp, String name, boolean isAlive, String partyName) {
+    public Character(int id, int hp, String name, boolean isAlive, Party party) {
         this.id = id;
         this.hp = hp;
         this.name = name;
         this.isAlive = isAlive;
-        this.partyName = partyName;
+        this.party = party;
     }
 
 
@@ -44,9 +44,9 @@ public abstract class Character {
         this.isAlive = isAlive;
     }
 
-    public String getPartyName() { return partyName; }
+    public Party getParty() { return party; }
 
-    public void setPartyName(String partyName) { this.partyName = partyName; }
+    public void setParty(Party party) { this.party = party; }
 }
 
 
