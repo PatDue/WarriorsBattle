@@ -30,12 +30,13 @@ public class Party {
         Random random = new Random();
         int partySize = random.nextInt(5)+3;
 
-        for (int i = 1; i <= partySize; i++ ) {
-            if (random.nextBoolean()) {
-                Warrior war1 = new Warrior(5, warriorNames[random.nextInt(24)], random.nextInt(100)+101, true, party, random.nextInt(40)+11, random.nextInt(11)-1);
+
+            for (int i = 1; i <= partySize; i++ ) {
+                if (random.nextBoolean()) {
+                Warrior war1 = new Warrior(5, random.nextInt(100)+101, warriorNames[random.nextInt(24)],true, partyName, random.nextInt(40)+11, random.nextInt(11)-1);
                 this.addMember(war1);
             } else {
-                Wizard wiz1 = new Wizard(6, wizardNames[random.nextInt(24)], random.nextInt(100) + 101, true, party, random.nextInt(40) + 11, random.nextInt(51) - 1);
+                Wizard wiz1 = new Wizard(6, random.nextInt(100) + 101,wizardNames[random.nextInt(24)],  true, partyName, random.nextInt(40) + 11, random.nextInt(51) - 1);
                 this.addMember(wiz1);
             }
         }
