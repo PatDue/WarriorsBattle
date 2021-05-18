@@ -1,7 +1,12 @@
 package com.ironhack.battlesimulator;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Party {
 
@@ -61,6 +66,50 @@ public class Party {
             }
         }
     }
+
+//    public void exportParty() throws Exception{
+//
+//
+//
+//        FileWriter fileWriter = null;
+//        try {
+//            fileWriter = new FileWriter(this.getPartyName() + ".csv");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//            try {
+//                fileWriter.write(this.toString());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            } finally {
+//                fileWriter.close();
+//            }
+//        }
+//    }
+
+//    public void importParty(String fileName) {
+//        URL url = null;
+//        try {
+//            url = new URL(urlCSV);
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//            System.err.println("Fehler URL wurde nicht gefunden");
+//            return null;
+//        }
+//        Scanner scanner = new Scanner(url.openStream());
+//        StringBuilder result = new StringBuilder();
+//        scanner.nextLine();
+//        while (scanner.hasNextLine()) {
+//            String line = scanner.nextLine();
+//            String[] columns = line.split(";");
+//            if (columns != null && columns.length > 1) {
+//                if (Integer.valueOf(columns[1]) > NEW_INFECTIONS_LIMIT) {
+//                    result.append(columns[0] + ": " + columns[1] + "\n");
+//                }
+//            }
+//        }
+//        return result.toString();
+//    }
 
     //method to return the name of a party
     public String getPartyName() {
