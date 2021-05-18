@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,9 +30,11 @@ class PartyTest {
         assertEquals(testWarriorNo1, testPartyNo1.getMembers().get(0));
     }
 
-//    @Test
-//    void createRandomMembers() {
-//    }
+    @Test
+    void createRandomMembers() {
+        testPartyNo1.createRandomMembers();
+        assertNotNull(testPartyNo1.getMembers());
+    }
 
     @Test
     void showMembers() {
