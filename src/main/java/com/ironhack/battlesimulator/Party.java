@@ -14,7 +14,7 @@ public class Party {
 
     //method to give a party its name
     public Party(String partyName) {
-        this.party = party;
+        this.party = partyName;
     }
 
     //method to add an existing character to a party
@@ -60,7 +60,6 @@ public class Party {
                 }
             }
         }
-        System.out.println();
     }
 
     //method to return the name of a party
