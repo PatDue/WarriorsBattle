@@ -1,5 +1,7 @@
 package com.ironhack.battlesimulator;
 
+import java.util.Scanner;
+
 public class Warrior extends Character implements Attacker {
 
     private Integer stamina;
@@ -25,6 +27,30 @@ public class Warrior extends Character implements Attacker {
 
     public Integer getStrength() {
         return strength;
+    }
+
+    public static void createManually() {
+        int hp;
+        String name;
+        Party party;
+        Integer stamina;
+        Integer strength;
+
+        String userInput = null;
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("Lets create a new Warrior!");
+        System.out.println("What is the name of our new Warrior?");
+        name = in.next();
+        System.out.println("How healthy is " + name + "? Everything between 100-200 is allowed.");
+        hp = Integer.parseInt(in.next());
+        System.out.println("How much stamina possess " + name + "? Please enter a value of min. 10 and max. 50.");
+        stamina = Integer.parseInt(in.next());
+        System.out.println(name + "is a might Warrior. But how strong? More 1 or near to 10?");
+        strength= Integer.parseInt(in.next());
+        System.out.println("And finaly to which party belongs our new Warrior?");
+        party = Party.getMapOfPartys().get(in.next());
+        Warrior warrior = new Warrior(hp, name, true, party, stamina, strength);
     }
 
     // Attack Method
