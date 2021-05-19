@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-05-19T09:54:27.797Z" agent="5.0 (Macintosh)" etag="LisvfPL0JnykosC0REyt" version="14.6.13" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-19T09:54:36.520Z" agent="5.0 (Macintosh)" etag="bwe3k4f5t_I3a-gH4yqg" version="14.6.13" type="github">
   <diagram id="zRnogB2254eo7cq1ihcv" name="Page-1">
     <mxGraphModel dx="1426" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -35,9 +35,6 @@
         </mxCell>
         <mxCell id="CesWcEBI8Uc0h6qZOhOl-9" value="Run Battle" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="270" y="490" width="140" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="CesWcEBI8Uc0h6qZOhOl-10" value="Use Case" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="370" width="140" height="70" as="geometry" />
         </mxCell>
         <mxCell id="CesWcEBI8Uc0h6qZOhOl-11" value="View Graveyard" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="270" y="585" width="140" height="70" as="geometry" />
