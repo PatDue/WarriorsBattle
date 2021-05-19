@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -46,6 +47,11 @@ class PartyTest {
         testPartyNo1.exportParty();
 //        Files file = new Files();
 //        assertTrue(Files.exists(testPartyNo1.getPartyName()+".csv"));
+    }
+
+    @Test
+    void importParty() throws IOException {
+        Party.importParty("Blue Army.csv");
     }
 
     @Test

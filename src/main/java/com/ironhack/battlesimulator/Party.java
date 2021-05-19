@@ -75,10 +75,10 @@ public class Party {
         for (Character selected : this.getMembers()) {
             if (selected.getCHARACTER_TYPE() == "com.ironhack.battlesimulator.Warrior") {
                 Warrior selectedWarrior = (Warrior) selected;
-                documentInput += "Warrior" + "; " + selectedWarrior.getId() + "; " + selectedWarrior.getName() + "; " + selectedWarrior.getHp() + "; " + selectedWarrior.getAlive() + "; " + selectedWarrior.getParty().getPartyName() + "; " + selectedWarrior.getStamina() + "; " + selectedWarrior.getStrength() + "\n";
+                documentInput += "Warrior" + ";" + selectedWarrior.getId() + ";" + selectedWarrior.getName() + ";" + selectedWarrior.getHp() + ";" + selectedWarrior.getAlive() + ";" + selectedWarrior.getParty().getPartyName() + ";" + selectedWarrior.getStamina() + ";" + selectedWarrior.getStrength() + "\n";
             } else {
                 Wizard selectedWizard = (Wizard) selected;
-                documentInput += "Wizard" + "; " + selectedWizard.getId() + "; " + selectedWizard.getName() + "; " + selectedWizard.getHp() + "; " + selectedWizard.getAlive() + "; " + selectedWizard.getParty().getPartyName() + "; " + selectedWizard.getMana() + "; " + selectedWizard.getIntelligence() + "\n";
+                documentInput += "Wizard" + ";" + selectedWizard.getId() + ";" + selectedWizard.getName() + ";" + selectedWizard.getHp() + ";" + selectedWizard.getAlive() + ";" + selectedWizard.getParty().getPartyName() + ";" + selectedWizard.getMana() + ";" + selectedWizard.getIntelligence() + "\n";
             }
         }
 
@@ -100,29 +100,52 @@ public class Party {
     }
 
 
-//    public void importParty(String fileName) {
-//        URL url = null;
-//        try {
-//            url = new URL(urlCSV);
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//            System.err.println("Fehler URL wurde nicht gefunden");
-//            return null;
-//        }
-//        Scanner scanner = new Scanner(url.openStream());
-//        StringBuilder result = new StringBuilder();
-//        scanner.nextLine();
-//        while (scanner.hasNextLine()) {
-//            String line = scanner.nextLine();
-//            String[] columns = line.split(";");
-//            if (columns != null && columns.length > 1) {
-//                if (Integer.valueOf(columns[1]) > NEW_INFECTIONS_LIMIT) {
-//                    result.append(columns[0] + ": " + columns[1] + "\n");
-//                }
-//            }
-//        }
-//        return result.toString();
-//    }
+    public static void importParty(String fileName) throws IOException {
+        URL url = null;
+
+        String id;
+        int hp;
+        String name;
+        Boolean isAlive;
+        Party party = null;
+        String partyName;
+        Integer stamina;
+        Integer strength;
+        Integer mana;
+        Integer intelligence;
+
+        try {
+            url = new URL(fileName); //Zugriff auf Speicherort der Datei noch zu klären
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            System.err.println("File not found");
+        }
+        Scanner scanner = new Scanner(url.openStream());
+        StringBuilder result = new StringBuilder();
+        scanner.nextLine();
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] columns = line.split(";");
+            if (party == null) {
+                partyName = columns[5];
+                party = new Party(partyName);
+            }
+            id = columns[1];
+            hp = Integer.parseInt(columns[2]);
+            name = columns[3];
+            isAlive = Boolean.parseBoolean(columns[4]);
+            if (columns[0] == "Warrior") {
+                stamina = Integer.parseInt(columns[6]);
+                strength = Integer.parseInt(columns[7]);
+                Warrior importedWarrior = new Warrior(hp,name,isAlive,party,stamina,strength);
+            } else {
+                mana = Integer.parseInt(columns[6]);
+                intelligence = Integer.parseInt(columns[7]);
+                Warrior importedWarrior = new Warrior(hp,name,isAlive,party,mana,intelligence);
+            }
+        }
+        System.out.println(party.getPartyName() + " with all its warriors and wizards has entered the battleground form file.");
+    }
 
     //method to return the name of a party
     public String getPartyName() {
