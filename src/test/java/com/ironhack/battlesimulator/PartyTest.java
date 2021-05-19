@@ -4,13 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -45,13 +40,14 @@ class PartyTest {
         testPartyNo1.createRandomMembers();
         assertNotNull(testPartyNo1.getMembers());
         testPartyNo1.exportParty();
-//        Files file = new Files();
-//        assertTrue(Files.exists(testPartyNo1.getPartyName()+".csv"));
+        Party.importParty(testPartyNo1.getPartyName() + ".csv");
+        assertTrue(Party.getMapOfPartys().get(testPartyNo1.getPartyName()).getPartyName().equals(testPartyNo1.getPartyName()));
     }
 
     @Test
     void importParty() throws IOException {
         Party.importParty("Blue Army.csv");
+        assertTrue(Party.getMapOfPartys().get("Blue Army").getPartyName().equals("Blue Army"));
     }
 
     @Test
@@ -67,7 +63,6 @@ class PartyTest {
         testPartyNo1.showMembers(true);
         assertEquals(expectedOutput, outgoingMessages.toString());
         System.setOut(originalOut);
-        // Fehleranalyse basiert auf https://stackoverflow.com/questions/1119385/junit-test-for-system-out-println
     }
 
     @Test

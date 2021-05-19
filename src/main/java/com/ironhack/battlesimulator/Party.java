@@ -1,15 +1,17 @@
 package com.ironhack.battlesimulator;
 
+import javax.xml.stream.Location;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.management.LockInfo;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+import java.nio.file.Path;
+import java.util.*;
 
 public class Party {
 
+    private static HashMap<String, Party> mapOfPartys = new HashMap<>();
     private ArrayList<Character> members = new ArrayList<>();
     private String party;
 
@@ -20,6 +22,7 @@ public class Party {
     //method to give a party its name
     public Party(String partyName) {
         this.party = partyName;
+        mapOfPartys.put(partyName, this);
         System.out.println(this.getPartyName() + " enters the battle!");
     }
 
@@ -100,8 +103,8 @@ public class Party {
     }
 
 
-    public static void importParty(String fileName) throws IOException {
-        URL url = null;
+    public static void importParty(String fileStorageLocation) throws IOException {
+        Path path = null;
 
         String id;
         int hp;
@@ -114,13 +117,7 @@ public class Party {
         Integer mana;
         Integer intelligence;
 
-        try {
-            url = new URL(fileName); //Zugriff auf Speicherort der Datei noch zu klären
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            System.err.println("File not found");
-        }
-        Scanner scanner = new Scanner(url.openStream());
+        Scanner scanner = new Scanner(Path.of(fileStorageLocation));
         StringBuilder result = new StringBuilder();
         scanner.nextLine();
         while (scanner.hasNextLine()) {
@@ -131,8 +128,8 @@ public class Party {
                 party = new Party(partyName);
             }
             id = columns[1];
-            hp = Integer.parseInt(columns[2]);
-            name = columns[3];
+            hp = Integer.parseInt(columns[3]);
+            name = columns[2];
             isAlive = Boolean.parseBoolean(columns[4]);
             if (columns[0] == "Warrior") {
                 stamina = Integer.parseInt(columns[6]);
@@ -144,6 +141,7 @@ public class Party {
                 Warrior importedWarrior = new Warrior(hp,name,isAlive,party,mana,intelligence);
             }
         }
+        mapOfPartys.put(party.getPartyName(), party);
         System.out.println(party.getPartyName() + " with all its warriors and wizards has entered the battleground form file.");
     }
 
@@ -151,5 +149,5 @@ public class Party {
     public String getPartyName() {
         return party;
     }
-
+    
 }
