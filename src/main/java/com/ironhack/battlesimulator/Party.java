@@ -149,5 +149,9 @@ public class Party {
     public String getPartyName() {
         return party;
     }
-    
+
+    public static HashMap<String, Party> getMapOfPartys() {
+        return mapOfPartys;
+    }
+
 }
