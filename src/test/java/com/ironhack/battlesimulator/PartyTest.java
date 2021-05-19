@@ -4,7 +4,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.PrintStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -34,6 +37,15 @@ class PartyTest {
     void createRandomMembers() {
         testPartyNo1.createRandomMembers();
         assertNotNull(testPartyNo1.getMembers());
+    }
+
+    @Test
+    void exportParty() throws Exception{
+        testPartyNo1.createRandomMembers();
+        assertNotNull(testPartyNo1.getMembers());
+        testPartyNo1.exportParty();
+//        Files file = new Files();
+//        assertTrue(Files.exists(testPartyNo1.getPartyName()+".csv"));
     }
 
     @Test

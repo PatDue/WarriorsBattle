@@ -69,25 +69,36 @@ public class Party {
         }
     }
 
-//    public void exportParty() throws Exception{
-//
-//
-//
-//        FileWriter fileWriter = null;
-//        try {
-//            fileWriter = new FileWriter(this.getPartyName() + ".csv");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                fileWriter.write(this.toString());
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            } finally {
-//                fileWriter.close();
-//            }
-//        }
-//    }
+    public void exportParty() throws Exception {
+        String documentInput = "CHARACTER_TYPE; id; name; hp; isAlive; party; stamina/mana; strength/intelligence\n";
+
+        for (Character selected : this.getMembers()) {
+            if (selected.getCHARACTER_TYPE() == "com.ironhack.battlesimulator.Warrior") {
+                Warrior selectedWarrior = (Warrior) selected;
+                documentInput += "Warrior" + "; " + selectedWarrior.getId() + "; " + selectedWarrior.getName() + "; " + selectedWarrior.getHp() + "; " + selectedWarrior.getAlive() + "; " + selectedWarrior.getParty().getPartyName() + "; " + selectedWarrior.getStamina() + "; " + selectedWarrior.getStrength() + "\n";
+            } else {
+                Wizard selectedWizard = (Wizard) selected;
+                documentInput += "Wizard" + "; " + selectedWizard.getId() + "; " + selectedWizard.getName() + "; " + selectedWizard.getHp() + "; " + selectedWizard.getAlive() + "; " + selectedWizard.getParty().getPartyName() + "; " + selectedWizard.getMana() + "; " + selectedWizard.getIntelligence() + "\n";
+            }
+        }
+
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(this.getPartyName() + ".csv");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileWriter.write(documentInput);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                fileWriter.close();
+            }
+        }
+        System.out.println(this.getPartyName() + " has been exported to " + this.getPartyName() + ".csv");
+    }
+
 
 //    public void importParty(String fileName) {
 //        URL url = null;
