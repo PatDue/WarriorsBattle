@@ -1,11 +1,7 @@
 package com.ironhack.battlesimulator;
 
-import javax.xml.stream.Location;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.management.LockInfo;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.file.Path;
 import java.util.*;
 
@@ -78,10 +74,10 @@ public class Party {
         for (Character selected : this.getMembers()) {
             if (selected.getCHARACTER_TYPE() == "com.ironhack.battlesimulator.Warrior") {
                 Warrior selectedWarrior = (Warrior) selected;
-                documentInput += "Warrior" + ";" + selectedWarrior.getId() + ";" + selectedWarrior.getName() + ";" + selectedWarrior.getHp() + ";" + selectedWarrior.getAlive() + ";" + selectedWarrior.getParty().getPartyName() + ";" + selectedWarrior.getStamina() + ";" + selectedWarrior.getStrength() + "\n";
+                documentInput += "Warrior" + ";" + selectedWarrior.getId() + ";" + selectedWarrior.getName() + ";" + selectedWarrior.getHp() + ";" + selectedWarrior.isAlive() + ";" + selectedWarrior.getParty().getPartyName() + ";" + selectedWarrior.getStamina() + ";" + selectedWarrior.getStrength() + "\n";
             } else {
                 Wizard selectedWizard = (Wizard) selected;
-                documentInput += "Wizard" + ";" + selectedWizard.getId() + ";" + selectedWizard.getName() + ";" + selectedWizard.getHp() + ";" + selectedWizard.getAlive() + ";" + selectedWizard.getParty().getPartyName() + ";" + selectedWizard.getMana() + ";" + selectedWizard.getIntelligence() + "\n";
+                documentInput += "Wizard" + ";" + selectedWizard.getId() + ";" + selectedWizard.getName() + ";" + selectedWizard.getHp() + ";" + selectedWizard.isAlive() + ";" + selectedWizard.getParty().getPartyName() + ";" + selectedWizard.getMana() + ";" + selectedWizard.getIntelligence() + "\n";
             }
         }
 

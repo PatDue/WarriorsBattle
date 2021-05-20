@@ -42,7 +42,7 @@ public abstract class Character implements Attacker{
         return isAlive;
     }
 
-    public void setAlive(Boolean isAlive) {
+    public void isAlive(Boolean isAlive) {
         this.isAlive = isAlive;
     }
 

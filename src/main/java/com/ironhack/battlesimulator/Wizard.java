@@ -102,7 +102,7 @@ public class Wizard extends Character implements Attacker {
     public void receiveDamage ( int damage){
         System.out.println("new HP = getHP - damage: " + this.getHp() + " - " + damage);
         this.setHp(this.getHp()-damage > 0 ? this.getHp()-damage : 0);
-        if (this.getHp() <= 0) this.setAlive(false);
+        if (this.getHp() <= 0) this.isAlive(false);
     }
 
 }
