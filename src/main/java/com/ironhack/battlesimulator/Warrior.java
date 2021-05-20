@@ -68,7 +68,7 @@ public class Warrior extends Character implements Attacker {
         System.out.println("And finally to which party belongs our new Warrior?");
         //Hier sollte besser eine Liste der bestehenden Parties zur Auswahl angezeigt werden
         //Derzeit führen PartyNames mit Leerzeichen zu einer NullPointerExeption
-        party = Party.getMapOfPartys().get(in.next());
+        party = Party.getListOfParties().get(0); //totaler Blödsinn, da so immer der erste Eintrag gelesen wird
 
         Warrior warrior = new Warrior(hp, name, true, party, stamina, strength);
     }

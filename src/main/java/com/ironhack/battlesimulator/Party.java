@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Party {
 
-    private static HashMap<String, Party> mapOfPartys = new HashMap<>();
+    private static ArrayList<Party> listOfParties = new ArrayList<>();
     private ArrayList<Character> members = new ArrayList<>();
     private String party;
 
@@ -18,7 +18,7 @@ public class Party {
     //method to give a party its name
     public Party(String partyName) {
         this.party = partyName;
-        mapOfPartys.put(partyName, this);
+        listOfParties.add(this);
         System.out.println(this.getPartyName() + " enters the battle!");
     }
 
@@ -31,6 +31,15 @@ public class Party {
     //method to get the complete ArrayList of Characters belonging to the party object
     public ArrayList<Character> getMembers() {
         return this.members;
+    }
+
+    public Character getRandomMember() {
+        Character selectedRandomMember = null;
+        Random random = new Random();
+        if (!this.getMembers().isEmpty()) {
+            selectedRandomMember = this.getMembers().get(random.nextInt(Party.getListOfParties().size()));
+        }
+        return selectedRandomMember;
     }
 
     //method to generate a random number of characters within the given boundaries
@@ -137,7 +146,7 @@ public class Party {
                 Warrior importedWarrior = new Warrior(hp,name,isAlive,party,mana,intelligence);
             }
         }
-        mapOfPartys.put(party.getPartyName(), party);
+        listOfParties.add(party);
         System.out.println(party.getPartyName() + " with all its warriors and wizards has entered the battleground form file.");
     }
 
@@ -146,8 +155,8 @@ public class Party {
         return party;
     }
 
-    public static HashMap<String, Party> getMapOfPartys() {
-        return mapOfPartys;
+    public static ArrayList<Party> getListOfParties() {
+        return listOfParties;
     }
 
 }

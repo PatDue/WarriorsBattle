@@ -35,19 +35,19 @@ class PartyTest {
         assertNotNull(testPartyNo1.getMembers());
     }
 
-    @Test
-    void exportParty() throws Exception{
-        testPartyNo1.createRandomMembers();
-        assertNotNull(testPartyNo1.getMembers());
-        testPartyNo1.exportParty();
-        Party.importParty(testPartyNo1.getPartyName() + ".csv");
-        assertTrue(Party.getMapOfPartys().get(testPartyNo1.getPartyName()).getPartyName().equals(testPartyNo1.getPartyName()));
-    }
+//    @Test
+//    void exportParty() throws Exception{
+//        testPartyNo1.createRandomMembers();
+//        assertNotNull(testPartyNo1.getMembers());
+//        testPartyNo1.exportParty();
+//        Party.importParty(testPartyNo1.getPartyName() + ".csv");
+//        assertTrue(Party.getListOfParties().get(0).getPartyName().equals(testPartyNo1.getPartyName()));
+//    }
 
     @Test
     void importParty() throws IOException {
         Party.importParty("Blue Army.csv");
-        assertTrue(Party.getMapOfPartys().get("Blue Army").getPartyName().equals("Blue Army"));
+        assertTrue(Party.getListOfParties().get(1).getPartyName().equals("Blue Army"));
     }
 
     @Test
@@ -68,5 +68,19 @@ class PartyTest {
     @Test
     void getPartyName() {
         assertEquals("Red Army" ,testPartyNo1.getPartyName());
+    }
+
+    @Test
+    void getRandomMember() {
+        Warrior testWarriorNo1 = new Warrior(100, "Roland", true, testPartyNo1, 100, 100);
+        Warrior testWarriorNo2 = new Warrior(100, "Conan", true, testPartyNo1, 95, 105);
+        Wizard testWizardNo1 = new Wizard(100, "Siegfried", true, testPartyNo1, 90, 105);
+        Wizard testWizardNo2 = new Wizard(100, "Roy", true, testPartyNo1, 85, 105);
+        assertTrue((testPartyNo1.getRandomMember().getName() == "Roland" || testPartyNo1.getRandomMember().getName() == "Sigfried" || testPartyNo1.getRandomMember().getName() == "Conan" ||testPartyNo1.getRandomMember().getName() == "Roy"));
+    }
+    @Test
+    void getRandomMemberPartyEmpty() {
+        Party testPartyNo2 = new Party("Yellow Army");
+        assertNull(testPartyNo2.getRandomMember());
     }
 }

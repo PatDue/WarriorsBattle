@@ -68,7 +68,7 @@ public class Wizard extends Character implements Attacker {
         System.out.println("And finally to which party belongs our new Wizard?");
         //Hier sollte besser eine Liste der bestehenden Parties zur Auswahl angezeigt werden
         //Derzeit führen PartyNames mit Leerzeichen zu einer NullPointerExeption
-        party = Party.getMapOfPartys().get(in.next());
+        party = Party.getListOfParties().get(0); //Totaler Blödsinn, da so immer der erste Eintrag gelesen wird
 
         Wizard wizard = new Wizard(hp, name, true, party, mana, intelligence);
     }
