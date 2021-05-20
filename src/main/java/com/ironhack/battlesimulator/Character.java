@@ -2,7 +2,7 @@ package com.ironhack.battlesimulator;
 
 import java.util.UUID;
 
-public abstract class Character {
+public abstract class Character implements Attacker{
     String id = UUID.randomUUID().toString(); // unique identifier
 
     private int hp;
@@ -16,7 +16,7 @@ public abstract class Character {
         this.name = name;
         this.isAlive = isAlive;
         this.party = party;
-        this.CHARACTER_TYPE = getClass().getName();
+        this.CHARACTER_TYPE = getClass().getSimpleName();
         party.addMember(this);
     }
 
@@ -38,7 +38,7 @@ public abstract class Character {
         this.name = name;
     }
 
-    public Boolean getAlive() {
+    public Boolean isAlive() {
         return isAlive;
     }
 

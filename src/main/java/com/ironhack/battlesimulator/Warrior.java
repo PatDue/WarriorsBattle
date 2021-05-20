@@ -1,6 +1,6 @@
 package com.ironhack.battlesimulator;
 
-public class Warrior extends Character implements Attacker {
+public class Warrior extends Character  {
 
     private Integer stamina;
     private Integer strength;
@@ -29,33 +29,36 @@ public class Warrior extends Character implements Attacker {
 
     // Attack Method
     @Override
-    public void attack(Character opponent) {
-        if (opponent.getAlive().equals(true)) {
-            if (stamina >= 5) {
-                System.out.println("Warrior " + this.getName() + " lands a Heavy Attack, with a damage of " + strength + " Health Points");
-                stamina = stamina - 5;
-                int newHp = opponent.getHp() - strength;
-                if (newHp > 0) {
-                    opponent.setHp(newHp);
-                } else {
-                    opponent.setHp(0);
-                    System.out.println("Warrior " + this.getName() + " killed " +opponent.getName());
-                    opponent.setAlive(false);
-                }
-            } else {
-                System.out.println("Warrior " + this.getName() + " lands Weak Attack, with a damage of " + strength / 2 + " Health Points");
-                stamina = stamina + 1;
-                int newHp = opponent.getHp() - strength / 2;
-                if (newHp > 0) {
-                    opponent.setHp(newHp);
-                } else {
-                    opponent.setHp(0);
-                    System.out.println("Warrior " + this.getName() + " killed " + opponent.getName());
-                    opponent.setAlive(false);
-                }
-            }
+    public double attack() {
+        int givenDamage = 0;
+        if (getStamina() - 5 > 0) {
+            givenDamage = doPowerAttack();
         } else {
-            System.out.println("Warrior " + this.getName() + " think that it isn't necessary to fight a dead one");
+            givenDamage = doNormalAttack();
         }
+        return givenDamage;
     }
+
+    @Override
+    public int doPowerAttack() {
+        System.out.println("Heavy attack!!!");
+        setStamina(getStamina()-5);
+        return getStrength();
+    }
+
+    @Override
+    public int doNormalAttack() {
+        System.out.println("Weak attack!");
+        setStamina(getStamina()+1);
+        return (int) getStrength()/2;
+    }
+
+    @Override
+    public void receiveDamage(int damage) {
+        System.out.println("new HP = getHP - damage: " + this.getHp() + " - " + damage);
+        this.setHp(this.getHp()-damage > 0 ? this.getHp()-damage : 0);
+        if(this.getHp() <= 0) this.setAlive(false);
+    }
+
 }
+

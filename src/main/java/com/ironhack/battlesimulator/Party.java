@@ -14,7 +14,7 @@ public class Party {
 
     //method to give a party its name
     public Party(String partyName) {
-        this.party = party;
+        this.party = partyName;
     }
 
     //method to add an existing character to a party
@@ -51,11 +51,11 @@ public class Party {
         }
         for (Character selected : this.members) {
             if (isAlive) {
-                if (selected.getAlive() == true) {
+                if (selected.isAlive() == true) {
                     System.out.println("Name: " + selected.getName() + ", Health Points: " + selected.getHp());
                 }
             } else {
-                if (selected.getAlive() == false) {
+                if (selected.isAlive() == false) {
                     System.err.println("Name: " + selected.getName() + ", Health Points: " + selected.getHp());
                 }
             }

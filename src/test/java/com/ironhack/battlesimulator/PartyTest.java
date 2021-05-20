@@ -19,7 +19,7 @@ class PartyTest {
     @Test
     void addMember() {
         Party testPartyNo1 = new Party("Red Army");
-        Warrior testWarriorNo1 = new Warrior(1,100, "Roland", true, testPartyNo1, 100, 100);
+        Warrior testWarriorNo1 = new Warrior(100, "Roland", true, testPartyNo1, 100, 100);
         assertEquals(testWarriorNo1, testPartyNo1.getMembers().get(0));
     }
 

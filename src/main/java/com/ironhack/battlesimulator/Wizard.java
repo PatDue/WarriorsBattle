@@ -29,33 +29,34 @@ public class Wizard extends Character implements Attacker {
 
     // Attack Method
     @Override
-    public void attack(Character opponent) {
-        if (opponent.getAlive().equals(true)) {
-            if (mana >= 5) {
-                System.out.println("Wizard " + this.getName() + " throws a Fireball, with a damage of " + intelligence + " Health Points");
-                mana = mana - 5;
-                int newHp = opponent.getHp() - intelligence;
-                if (newHp > 0) {
-                    opponent.setHp(newHp);
-                } else {
-                    opponent.setHp(0);
-                    System.out.println("Wizard " + this.getName() + " killed " + opponent.getName());
-                    opponent.setAlive(false);
-                }
-            } else {
-                System.out.println("Wizard " + this.getName() + " lands a Staff hit, with a damage of " + 2 + " Health Points");
-                mana = mana + 1;
-                int newHp = opponent.getHp() - 2;
-                if (newHp > 0) {
-                    opponent.setHp(newHp);
-                } else {
-                    opponent.setHp(0);
-                    System.out.println("Wizard " + this.getName() + " killed " + opponent.getName());
-                    opponent.setAlive(false);
-                }
-            }
+    public double attack() {
+        int givenDamage = 0;
+        if (getMana() - 5 > 0) {
+            givenDamage = doPowerAttack();
         } else {
-            System.out.println("Wizard " + this.getName() + " don´t fight dead people");
+            givenDamage = doNormalAttack();
         }
+        return givenDamage;
     }
+
+    @Override
+    public int doPowerAttack() {
+        System.out.println("Fireball!!!!!");
+        setMana(getMana()-5);
+        return getIntelligence();
+    }
+
+    @Override
+    public int doNormalAttack() {
+        System.out.println("Staff hit!");
+        setMana(getMana() + 1);
+        return 2;
+    }
+    @Override
+    public void receiveDamage ( int damage){
+        System.out.println("new HP = getHP - damage: " + this.getHp() + " - " + damage);
+        this.setHp(this.getHp()-damage > 0 ? this.getHp()-damage : 0);
+        if (this.getHp() <= 0) this.setAlive(false);
+    }
+
 }
