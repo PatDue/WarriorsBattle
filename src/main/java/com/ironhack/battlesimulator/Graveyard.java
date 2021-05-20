@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class Graveyard {
 
-    private ArrayList<Character> deadPartyMembers = new ArrayList<>();
+    private static ArrayList<Character> deadPartyMembers = new ArrayList<>();
+
 
     //get dead members
-    public ArrayList<Character> getDeadPartyMembers() {
+    public static ArrayList<Character> getDeadPartyMembers() {
         return deadPartyMembers;
     }
 
 // Method to be called after a fight to bury a character on the graveyard
-    public Character bury(Character character){
+    public static void bury(Character character){
         deadPartyMembers.add(character);
         System.out.println(character +" lost all the HealthPoints and got buried on the graveyard.");
-        return character;
     }
 
 
