@@ -65,7 +65,7 @@ public class Battle {
         int givenDamageDuellist1 = 0;
         int givenDamageDuellist2 = 0;
         System.out.println("#############################################################");
-        System.out.println("Round:" + this.rounds);
+        System.out.println("\n"+"Round:" + this.rounds);
         showStatsForCharacter(duellist1.getCHARACTER_TYPE(), duellist1);
         showStatsForCharacter(duellist2.getCHARACTER_TYPE(), duellist2);
 
@@ -78,7 +78,13 @@ public class Battle {
         System.out.println(this.duellist1.getName() +"("+this.duellist1.getParty().getPartyName() +") hit with damage: " + givenDamageDuellist1);
         System.out.println(this.duellist2.getName() +"("+this.duellist2.getParty().getPartyName() +") hit with damage: " + givenDamageDuellist2);
 
-        System.out.println("------------------------Round result------------------------");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("\n"+"------------------------Round result------------------------"+"\n");
         this.duellist1.receiveDamage(givenDamageDuellist2);
         this.duellist2.receiveDamage(givenDamageDuellist1);
         System.out.println(this.duellist1.getName() +"("+this.duellist1.getParty().getPartyName()+") has left: ");
@@ -91,6 +97,11 @@ public class Battle {
             Graveyard.bury(duellist1);
         }if (duellist2.isAlive() == false){
             Graveyard.bury(duellist2);
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

@@ -15,12 +15,13 @@ public class Graveyard {
     // Method to be called after a fight to bury a character on the graveyard
     public static void bury(Character character) {
         deadPartyMembers.add(character);
-        System.out.println(character + " lost all the HealthPoints and got buried on the graveyard.");
+        System.out.println("\n"+character.getName() + " lost all the HealthPoints and got buried on the graveyard."+"\n");
     }
 
     //Method to show all members in the graveyard
     public static void showGraveyardMembers() {
-        System.out.println("THE GRAVEYARD:");
+        System.out.println(" ");
+        System.out.println("----- THE GRAVEYARD -----");
         System.out.println(" ");
         for (Character deadCharacter : deadPartyMembers) {
             System.out.println(deadCharacter.getName());
