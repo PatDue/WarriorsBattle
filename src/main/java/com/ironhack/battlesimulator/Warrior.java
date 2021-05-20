@@ -42,14 +42,34 @@ public class Warrior extends Character implements Attacker {
         System.out.println("Lets create a new Warrior!");
         System.out.println("What is the name of our new Warrior?");
         name = in.next();
-        System.out.println("How healthy is " + name + "? Everything between 100-200 is allowed.");
-        hp = Integer.parseInt(in.next());
+        do {
+            System.out.println("How healthy is " + name + "? Everything between 100-200 is allowed.");
+            hp = Integer.parseInt(in.next());
+            if (hp < 100 || hp > 200) {
+                System.err.println("Try again. " + hp + " is out of the allowed boundary.");
+            }
+        } while (hp < 100 || hp > 200);
+
+        do {
         System.out.println("How much stamina possess " + name + "? Please enter a value of min. 10 and max. 50.");
         stamina = Integer.parseInt(in.next());
-        System.out.println(name + "is a might Warrior. But how strong? More 1 or near to 10?");
-        strength= Integer.parseInt(in.next());
-        System.out.println("And finaly to which party belongs our new Warrior?");
+            if (stamina < 10 || stamina > 50) {
+                System.err.println("Sorry, a stamina of " + stamina + " is out limits.");
+            }
+        } while (stamina < 10 || stamina > 50);
+        do {
+            System.out.println(name + " is a mighty Warrior. But how strong? More 1 or near to 10?");
+            strength= Integer.parseInt(in.next());
+            if (strength < 1 || strength > 10) {
+                System.err.println("A strength of " + strength + " is not allowed. Try again.");
+            }
+        } while (strength < 1 || strength > 10);
+
+        System.out.println("And finally to which party belongs our new Warrior?");
+        //Hier sollte besser eine Liste der bestehenden Parties zur Auswahl angezeigt werden
+        //Derzeit führen PartyNames mit Leerzeichen zu einer NullPointerExeption
         party = Party.getMapOfPartys().get(in.next());
+
         Warrior warrior = new Warrior(hp, name, true, party, stamina, strength);
     }
 
