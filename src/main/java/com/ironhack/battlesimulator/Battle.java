@@ -73,8 +73,8 @@ public class Battle {
         double d2 =  this.duellist2.attack() * getPowerOfAttack(startEnduranceDuellist2, getEndurance(duellist2));
         System.out.println("damage1 (double) " + Double.toString(d1));
         System.out.println("damage2 (double) " + Double.toString(d2));
-        givenDamageDuellist1 = (int) d1;
-        givenDamageDuellist2 = (int) d2;
+        givenDamageDuellist1 = (int) Math.round(d1);
+        givenDamageDuellist2 = (int) Math.round(d2);
         System.out.println(this.duellist1.getName() +"("+this.duellist1.getParty().getPartyName() +") hit with damage: " + givenDamageDuellist1);
         System.out.println(this.duellist2.getName() +"("+this.duellist2.getParty().getPartyName() +") hit with damage: " + givenDamageDuellist2);
 
@@ -93,7 +93,6 @@ public class Battle {
         double percentage = ((double) leftPower*100)/startPower;
         double random = new Random().nextDouble();
         double rn = (100 + (random * (percentage - 100)) ) * 0.01;
-        System.out.println("POWER ----------------> " + Double.toString(rn));
         return rn;
     }
 

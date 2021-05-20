@@ -57,14 +57,26 @@ public class Party {
         Random random = new Random();
         int partySize = random.nextInt(5)+3;
 
-
+        //random.nextInt(max - min) + min;
             for (int i = 1; i <= partySize; i++ ) {
                 if (random.nextBoolean()) {
-                Warrior war1 = new Warrior(random.nextInt(100)+101, warriorNames[random.nextInt(24)],true, this, random.nextInt(40)+11, random.nextInt(11)-1);
+                Warrior war1 = new Warrior(getRandomPhysicalCharacteristics(physicalCharacteristics.HP_WARRIOR_MIN, physicalCharacteristics.HP_WARRIOR_MAX),
+                        warriorNames[random.nextInt(24)],true, this,
+                        getRandomPhysicalCharacteristics(physicalCharacteristics.STAMINA_MIN,physicalCharacteristics.STAMINA_MAX),
+                        getRandomPhysicalCharacteristics(physicalCharacteristics.STRENGTH_MIN, physicalCharacteristics.STRENGTH_MAX));
             } else {
-                Wizard wiz1 = new Wizard(random.nextInt(100) + 101,wizardNames[random.nextInt(24)],  true, this, random.nextInt(40) + 11, random.nextInt(51) - 1);
+                Wizard wiz1 = new Wizard(getRandomPhysicalCharacteristics(physicalCharacteristics.HP_WIZARD_MIN, physicalCharacteristics.HP_WIZARD_MAX),
+                        wizardNames[random.nextInt(24)],  true, this,
+                        getRandomPhysicalCharacteristics(physicalCharacteristics.MANA_MIN, physicalCharacteristics.MANA_MAX),
+                        getRandomPhysicalCharacteristics(physicalCharacteristics.INTELLIGENCE_MIN, physicalCharacteristics.INTELLIGENCE_MAX));
             }
         }
+    }
+
+    //method to get random int within boundaries
+    private  int getRandomPhysicalCharacteristics(physicalCharacteristics min, physicalCharacteristics max) {
+        Random random = new Random();
+        return random.nextInt(max.getValue() - min.getValue()) + min.getValue();
     }
 
     //method to show the living or dead characters/members of a party
