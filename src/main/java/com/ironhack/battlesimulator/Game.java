@@ -1,15 +1,6 @@
 package com.ironhack.battlesimulator;
 
 public class Game {
-    Integer counter;
-
-    public Game(Integer counter) {
-        this.counter = counter;
-    }
-
-    public Integer getCounter() {
-        return counter;
-    }
 
     public void startGame() {
 
@@ -23,26 +14,14 @@ public class Game {
             Character character2 = blueArmy.getRandomMember();
 
             Battle schlacht = new Battle(character1, character2);
-            while(character1.isAlive() && character2.isAlive()){
+            while (character1.isAlive() && character2.isAlive()) {
                 schlacht.fight();
             }
-
-//            battleLooserIs(redArmy);
-//            battleLooserIs(blueArmy);
         }
-
-//        Party winner;
-//        if (redArmy.getRandomMember() != null) {
-//            winner = redArmy;
-//        } else {
-//            winner = blueArmy;
-//        }
-//
-//        System.out.println("THE WINNER is " + winner.getPartyName());
+        if (redArmy.getRandomMember() != null && blueArmy.getRandomMember() == null) {
+            System.out.println("the victory is yours");
+        } else {
+            System.out.println("Your Army loose, try again!");
+        }
     }
-//    public void battleLooserIs(Party party){
-//        if(party.getRandomMember() == null){
-//            System.out.println(party.getPartyName() + " loose the fight");
-//        }
-//    }
 }
