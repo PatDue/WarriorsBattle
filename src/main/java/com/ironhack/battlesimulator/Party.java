@@ -1,10 +1,17 @@
 package com.ironhack.battlesimulator;
 
-import java.util.ArrayList;
-import java.util.Random;
+import javax.xml.stream.Location;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.management.LockInfo;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.file.Path;
+import java.util.*;
 
 public class Party {
 
+    private static HashMap<String, Party> mapOfPartys = new HashMap<>();
     private ArrayList<Character> members = new ArrayList<>();
     private String party;
 
@@ -15,11 +22,14 @@ public class Party {
     //method to give a party its name
     public Party(String partyName) {
         this.party = partyName;
+        mapOfPartys.put(partyName, this);
+        System.out.println(this.getPartyName() + " enters the battle!");
     }
 
     //method to add an existing character to a party
     public void addMember(Character member) {
         members.add(member);
+        System.out.println(member.getName() + " joined " + this.getPartyName());
     }
 
     //method to get the complete ArrayList of Characters belonging to the party object
@@ -60,12 +70,88 @@ public class Party {
                 }
             }
         }
-        System.out.println();
+    }
+
+    public void exportParty() throws Exception {
+        String documentInput = "CHARACTER_TYPE; id; name; hp; isAlive; party; stamina/mana; strength/intelligence\n";
+
+        for (Character selected : this.getMembers()) {
+            if (selected.getCHARACTER_TYPE() == "com.ironhack.battlesimulator.Warrior") {
+                Warrior selectedWarrior = (Warrior) selected;
+                documentInput += "Warrior" + ";" + selectedWarrior.getId() + ";" + selectedWarrior.getName() + ";" + selectedWarrior.getHp() + ";" + selectedWarrior.getAlive() + ";" + selectedWarrior.getParty().getPartyName() + ";" + selectedWarrior.getStamina() + ";" + selectedWarrior.getStrength() + "\n";
+            } else {
+                Wizard selectedWizard = (Wizard) selected;
+                documentInput += "Wizard" + ";" + selectedWizard.getId() + ";" + selectedWizard.getName() + ";" + selectedWizard.getHp() + ";" + selectedWizard.getAlive() + ";" + selectedWizard.getParty().getPartyName() + ";" + selectedWizard.getMana() + ";" + selectedWizard.getIntelligence() + "\n";
+            }
+        }
+
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(this.getPartyName() + ".csv");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                fileWriter.write(documentInput);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                fileWriter.close();
+            }
+        }
+        System.out.println(this.getPartyName() + " has been exported to " + this.getPartyName() + ".csv");
+    }
+
+
+    public static void importParty(String fileStorageLocation) throws IOException {
+        Path path = null;
+
+        String id;
+        int hp;
+        String name;
+        Boolean isAlive;
+        Party party = null;
+        String partyName;
+        Integer stamina;
+        Integer strength;
+        Integer mana;
+        Integer intelligence;
+
+        Scanner scanner = new Scanner(Path.of(fileStorageLocation));
+        StringBuilder result = new StringBuilder();
+        scanner.nextLine();
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] columns = line.split(";");
+            if (party == null) {
+                partyName = columns[5];
+                party = new Party(partyName);
+            }
+            id = columns[1];
+            hp = Integer.parseInt(columns[3]);
+            name = columns[2];
+            isAlive = Boolean.parseBoolean(columns[4]);
+            if (columns[0] == "Warrior") {
+                stamina = Integer.parseInt(columns[6]);
+                strength = Integer.parseInt(columns[7]);
+                Warrior importedWarrior = new Warrior(hp,name,isAlive,party,stamina,strength);
+            } else {
+                mana = Integer.parseInt(columns[6]);
+                intelligence = Integer.parseInt(columns[7]);
+                Warrior importedWarrior = new Warrior(hp,name,isAlive,party,mana,intelligence);
+            }
+        }
+        mapOfPartys.put(party.getPartyName(), party);
+        System.out.println(party.getPartyName() + " with all its warriors and wizards has entered the battleground form file.");
     }
 
     //method to return the name of a party
     public String getPartyName() {
         return party;
+    }
+
+    public static HashMap<String, Party> getMapOfPartys() {
+        return mapOfPartys;
     }
 
 }

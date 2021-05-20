@@ -1,0 +1,45 @@
+<mxfile host="app.diagrams.net" modified="2021-05-19T09:54:36.520Z" agent="5.0 (Macintosh)" etag="bwe3k4f5t_I3a-gH4yqg" version="14.6.13" type="github">
+  <diagram id="zRnogB2254eo7cq1ihcv" name="Page-1">
+    <mxGraphModel dx="1426" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="CesWcEBI8Uc0h6qZOhOl-2" target="CesWcEBI8Uc0h6qZOhOl-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-7" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CesWcEBI8Uc0h6qZOhOl-2" target="CesWcEBI8Uc0h6qZOhOl-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-8" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CesWcEBI8Uc0h6qZOhOl-2" target="CesWcEBI8Uc0h6qZOhOl-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-12" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="CesWcEBI8Uc0h6qZOhOl-2" target="CesWcEBI8Uc0h6qZOhOl-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="540" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-13" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="CesWcEBI8Uc0h6qZOhOl-2" target="CesWcEBI8Uc0h6qZOhOl-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-2" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="310" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-3" value="Create Party" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="280" y="190" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-5" value="Show Members" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="274" y="380" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-6" value="Create Random Party Members" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="274" y="280" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-9" value="Run Battle" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="490" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="CesWcEBI8Uc0h6qZOhOl-11" value="View Graveyard" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="270" y="585" width="140" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
