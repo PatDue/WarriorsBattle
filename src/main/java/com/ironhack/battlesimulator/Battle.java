@@ -87,6 +87,11 @@ public class Battle {
         System.out.println(this.duellist2.getName() +"("+this.duellist2.getParty().getPartyName()+") has left: ");
         System.out.println("\tHP =>" + this.duellist2.getHp());
         System.out.println("\tis still Alive => " + this.duellist2.isAlive());
+        if(duellist1.isAlive() == false){
+            Graveyard.bury(duellist1);
+        }if (duellist2.isAlive() == false){
+            Graveyard.bury(duellist2);
+        }
     }
 
     private double getPowerOfAttack(Integer startPower, Integer leftPower) {

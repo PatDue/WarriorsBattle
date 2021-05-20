@@ -20,9 +20,12 @@ public class Graveyard {
 
     //Method to show all members in the graveyard
     public static void showGraveyardMembers() {
+        System.out.println("THE GRAVEYARD:");
+        System.out.println(" ");
         for (Character deadCharacter : deadPartyMembers) {
-            System.out.println(deadCharacter);
+            System.out.println(deadCharacter.getName());
         }
+        System.out.println(" ");
     }
 
 
