@@ -141,20 +141,20 @@ public class Menue {
 
             contentPanel.addComponent(new Label("Graveyard"));
             contentPanel.addComponent(new Button("show", () -> Graveyard.showGraveyardMembers()));
-                    //() -> MessageDialog.showMessageDialog(textGUI, "MessageBox", "This is a message box", MessageDialogButton.OK)).setLayoutData(GridLayout.createLayoutData(GridLayout.Alignment.CENTER, GridLayout.Alignment.CENTER)));
+
+//                    () -> MessageDialog.showMessageDialog(textGUI, "MessageBox", "Have a look into the terminal", MessageDialogButton.OK)).setLayoutData(GridLayout.createLayoutData(GridLayout.Alignment.CENTER, GridLayout.Alignment.CENTER)));
 
 
             /*
             Close off with an empty row and a separator, then a button to close the window
              */
-            contentPanel.addComponent(
-                    new EmptySpace()
-                            .setLayoutData(
-                                    GridLayout.createHorizontallyFilledLayoutData(2)));
+
             contentPanel.addComponent(
                     new Separator(Direction.HORIZONTAL)
                             .setLayoutData(
                                     GridLayout.createHorizontallyFilledLayoutData(2)));
+
+
             contentPanel.addComponent(
                     new Button("Exit Game", () -> System.exit(0)/*window::close*/).setLayoutData(
                             GridLayout.createHorizontallyEndAlignedLayoutData(2)));
