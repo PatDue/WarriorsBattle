@@ -19,9 +19,9 @@ public class Game {
             }
         }
         if (redArmy.getRandomMember() != null && blueArmy.getRandomMember() == null) {
-            System.out.println("Congratulations! The victory is yours!");
+            System.out.println((char) 27 + "\u001b[43m"+"Congratulations! The victory is yours!" + "\033[0m" + "\n");
         } else {
-            System.out.println("Your Army lost... but don't worry, you can try again!");
+            System.out.println((char) 27 + "\u001b[47m"+"Your Army lost... but don't worry, you can try again!" + "\033[0m" + "\n");
         }
     }
 }

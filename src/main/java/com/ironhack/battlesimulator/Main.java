@@ -13,10 +13,10 @@ public class Main {
 
             while (isPlaying == true) {
 
-                System.out.println("Start Game?");
-                System.out.println("Start (1) ?");
-                System.out.println("Visit Graveyard (2) ?");
-                System.out.println("Exit (3) ?");
+                System.out.println("\n" + (char)27 + "[7m"+ "----- Do you want to start the game? -----" + "\033[0m" + "\n");
+                System.out.println("Start the game: "+ (char)27 + "\033[1m"+ "(1)"+ "\033[0m");
+                System.out.println("Visit the Graveyard: "+ (char)27 + "\033[1m"+ "(2)"+ "\033[0m");
+                System.out.println("Exit Game " + (char)27 + "\033[1m"+ "(3)"+ "\033[0m");
                 i = input.next();
 
                 switch (i) {

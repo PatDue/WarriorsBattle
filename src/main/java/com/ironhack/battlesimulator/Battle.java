@@ -1,5 +1,7 @@
 package com.ironhack.battlesimulator;
 
+import org.w3c.dom.html.HTMLImageElement;
+
 import java.util.List;
 import java.util.Random;
 
@@ -64,8 +66,11 @@ public class Battle {
         this.rounds++;
         int givenDamageDuellist1 = 0;
         int givenDamageDuellist2 = 0;
-        System.out.println("#############################################################");
-        System.out.println("\n"+"Round:" + this.rounds);
+
+        System.out.println("\n"+(char) 27 + "[31m" + "\u001b[1m"+ "\u001b[7m"+ "\n"+"Round:" + this.rounds);
+        System.out.println((char) 27 + "[30m"+"\033[0m");
+
+
         showStatsForCharacter(duellist1.getCHARACTER_TYPE(), duellist1);
         showStatsForCharacter(duellist2.getCHARACTER_TYPE(), duellist2);
 
@@ -84,7 +89,9 @@ public class Battle {
             e.printStackTrace();
         }
 
-        System.out.println("\n"+"------------------------Round result------------------------"+"\n");
+        System.out.println(("\n" + (char) 27 + "\u001b[47m" + "------------------------Round result------------------------" + "\033[0m" + "\u001b[30;1m" + "\n"));
+
+
         this.duellist1.receiveDamage(givenDamageDuellist2);
         this.duellist2.receiveDamage(givenDamageDuellist1);
         System.out.println(this.duellist1.getName() +"("+this.duellist1.getParty().getPartyName()+") has left: ");
