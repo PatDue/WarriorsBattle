@@ -37,7 +37,7 @@ public class Party {
         Character selectedRandomMember = null;
         Random random = new Random();
         if (!this.getMembers().isEmpty()) {
-            selectedRandomMember = this.getMembers().get(random.nextInt(Party.getListOfParties().size()));
+            selectedRandomMember = this.getMembers().get(random.nextInt(this.getMembers().size()));
         }
         return selectedRandomMember;
     }

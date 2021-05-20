@@ -76,7 +76,8 @@ class PartyTest {
         Warrior testWarriorNo2 = new Warrior(100, "Conan", true, testPartyNo1, 95, 105);
         Wizard testWizardNo1 = new Wizard(100, "Siegfried", true, testPartyNo1, 90, 105);
         Wizard testWizardNo2 = new Wizard(100, "Roy", true, testPartyNo1, 85, 105);
-        assertTrue((testPartyNo1.getRandomMember().getName() == "Roland" || testPartyNo1.getRandomMember().getName() == "Sigfried" || testPartyNo1.getRandomMember().getName() == "Conan" ||testPartyNo1.getRandomMember().getName() == "Roy"));
+        String randomCharactersName = testPartyNo1.getRandomMember().getName();
+        assertTrue((randomCharactersName == "Roland") || (randomCharactersName == "Siegfried") || (randomCharactersName == "Conan") || (randomCharactersName == "Roy"));
     }
     @Test
     void getRandomMemberPartyEmpty() {
