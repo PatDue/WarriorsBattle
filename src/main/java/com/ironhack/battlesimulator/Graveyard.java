@@ -1,7 +1,6 @@
 package com.ironhack.battlesimulator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Graveyard {
 
@@ -12,19 +11,25 @@ public class Graveyard {
         return deadPartyMembers;
     }
 
+// Method to be called after a fight to bury a character on the graveyard
+    public Character bury(Character character){
+        deadPartyMembers.add(character);
+        System.out.println(character +" lost all the HealthPoints and got buried on the graveyard.");
+        return character;
+    }
 
 
+// Search for dead Party members?
+//       for (Character C : deadPartyMembers){
+//        System.out.println(deadPartyMembers[C]);
+//
 
+    @Override
+    public String toString() {
+        return "Graveyard{" +
+                "deadPartyMembers=" + deadPartyMembers +
+                '}';
+    }
 
-
-//    public HashMap<Integer, Character> deadPartyMembers = new HashMap<>();
-
-//Access to deadPartyMembers
-//public HashMap<Integer, Character> getDeadPartyMembers() {
-//    return deadPartyMembers;
-//}
-
-   // if (xxx.getHp <= 0) {
-    // deadPartyMembers.put(xxx)
-    // }
+    
 }
