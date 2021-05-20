@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Party {
 
-    private static ArrayList<Party> listOfParties = new ArrayList<>();
+    private static HashMap<String, Party> mapOfParties = new HashMap<>();
     private ArrayList<Character> members = new ArrayList<>();
     private String party;
 
@@ -18,7 +18,7 @@ public class Party {
     //method to give a party its name
     public Party(String partyName) {
         this.party = partyName;
-        listOfParties.add(this);
+        mapOfParties.put(partyName, this);
         System.out.println(this.getPartyName() + " enters the battle!");
     }
 
@@ -156,7 +156,7 @@ public class Party {
                 Warrior importedWarrior = new Warrior(hp,name,isAlive,party,mana,intelligence);
             }
         }
-        listOfParties.add(party);
+        mapOfParties.get(party);
         System.out.println(party.getPartyName() + " with all its warriors and wizards has entered the battleground form file.");
     }
 
@@ -165,8 +165,23 @@ public class Party {
         return party;
     }
 
-    public static ArrayList<Party> getListOfParties() {
-        return listOfParties;
+    public static HashMap<String, Party> getMapOfParties() {
+        return mapOfParties;
     }
 
+    public static void showExistingParties(){
+        System.out.println("On the battlefield are ...");
+        for (Map.Entry<String, Party> entry : Party.getMapOfParties().entrySet()) {
+            System.out.println("... " + entry.getValue().getPartyName());
+        }
+    }
+
+    public static boolean existsParty(String enteredName) {
+        for (Map.Entry<String, Party> entry: Party.getMapOfParties().entrySet()) {
+            if (entry.getValue().getPartyName().equals(enteredName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

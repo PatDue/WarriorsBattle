@@ -32,7 +32,7 @@ public class Warrior extends Character implements Attacker {
     public static void createManually() {
         int hp;
         String name;
-        Party party;
+        Party party = null;
         Integer stamina;
         Integer strength;
 
@@ -41,10 +41,12 @@ public class Warrior extends Character implements Attacker {
 
         System.out.println("Lets create a new Warrior!");
         System.out.println("What is the name of our new Warrior?");
-        name = in.next();
+        userInput = in.nextLine();
+        name = userInput;
         do {
             System.out.println("How healthy is " + name + "? Everything between 100-200 is allowed.");
-            hp = Integer.parseInt(in.next());
+            userInput = in.nextLine();
+            hp = Integer.parseInt(userInput);
             if (hp < 100 || hp > 200) {
                 System.err.println("Try again. " + hp + " is out of the allowed boundary.");
             }
@@ -52,23 +54,31 @@ public class Warrior extends Character implements Attacker {
 
         do {
         System.out.println("How much stamina possess " + name + "? Please enter a value of min. 10 and max. 50.");
-        stamina = Integer.parseInt(in.next());
+        userInput = in.nextLine();
+        stamina = Integer.parseInt(userInput);
             if (stamina < 10 || stamina > 50) {
                 System.err.println("Sorry, a stamina of " + stamina + " is out limits.");
             }
         } while (stamina < 10 || stamina > 50);
         do {
             System.out.println(name + " is a mighty Warrior. But how strong? More 1 or near to 10?");
-            strength= Integer.parseInt(in.next());
+            userInput = in.nextLine();
+            strength= Integer.parseInt(userInput);
             if (strength < 1 || strength > 10) {
                 System.err.println("A strength of " + strength + " is not allowed. Try again.");
             }
         } while (strength < 1 || strength > 10);
 
-        System.out.println("And finally to which party belongs our new Warrior?");
-        //Hier sollte besser eine Liste der bestehenden Parties zur Auswahl angezeigt werden
-        //Derzeit führen PartyNames mit Leerzeichen zu einer NullPointerExeption
-        party = Party.getListOfParties().get(0); //totaler Blödsinn, da so immer der erste Eintrag gelesen wird
+        do {
+            System.out.println("And finally to which party belongs our new Warrior?");
+            Party.showExistingParties();
+            userInput = in.nextLine();
+            if (Party.existsParty(userInput)) {
+                party = Party.getMapOfParties().get(userInput);
+            } else {
+                System.err.println("Sorry the party " + userInput + " doesn't exist. Try again.");
+            }
+        } while (!Party.existsParty(userInput));
 
         Warrior warrior = new Warrior(hp, name, true, party, stamina, strength);
     }

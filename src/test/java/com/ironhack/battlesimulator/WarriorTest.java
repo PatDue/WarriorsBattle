@@ -37,8 +37,9 @@ class WarriorTest {
         assertEquals(15, testWarriorNo1.getStrength());
     }
 
-    @Test
-    void createManually() {
-        assertTrue(false);
-    }
+//    @Test
+//    void createManually() {
+//        Warrior.createManually();
+//        assertTrue(false);
+//    }
 }

@@ -47,7 +47,7 @@ class PartyTest {
     @Test
     void importParty() throws IOException {
         Party.importParty("Blue Army.csv");
-        assertTrue(Party.getListOfParties().get(1).getPartyName().equals("Blue Army"));
+        assertTrue(Party.getMapOfParties().get("Blue Army").getPartyName().equals("Blue Army"));
     }
 
     @Test

@@ -32,7 +32,7 @@ public class Wizard extends Character implements Attacker {
     public static void createManually() {
         int hp;
         String name;
-        Party party;
+        Party party = null;
         Integer mana;
         Integer intelligence;
 
@@ -41,10 +41,12 @@ public class Wizard extends Character implements Attacker {
 
         System.out.println("Lets create a new Wizard!");
         System.out.println("By which name goes the new Wizard?");
-        name = in.next();
+        userInput = in.nextLine();
+        name = userInput;
         do {
             System.out.println("How healthy is " + name + "? Everything between 100-200 is allowed.");
-            hp = Integer.parseInt(in.next());
+            userInput = in.nextLine();
+            hp = Integer.parseInt(userInput);
             if (hp < 100 || hp > 200) {
                 System.err.println("Try again. " + hp + " is out of the allowed boundary.");
             }
@@ -52,23 +54,31 @@ public class Wizard extends Character implements Attacker {
 
         do {
             System.out.println("How much mana possess " + name + "? Please enter a value of min. 10 and max. 50.");
-            mana = Integer.parseInt(in.next());
+            userInput = in.nextLine();
+            mana = Integer.parseInt(userInput);
             if (mana < 10 || mana > 50) {
                 System.err.println("Sorry, a mana of " + mana + " is out limits.");
             }
         } while (mana < 10 || mana > 50);
         do {
             System.out.println(name + " is a mighty Wizard. But how much mana does " + name + " have? More 1 or near to 50?");
-            intelligence= Integer.parseInt(in.next());
+            userInput = in.nextLine();
+            intelligence= Integer.parseInt(userInput);
             if (intelligence < 1 || intelligence > 50) {
                 System.err.println("A strength of " + intelligence + " is not allowed. Try again.");
             }
         } while (intelligence < 1 || intelligence > 50);
 
-        System.out.println("And finally to which party belongs our new Wizard?");
-        //Hier sollte besser eine Liste der bestehenden Parties zur Auswahl angezeigt werden
-        //Derzeit führen PartyNames mit Leerzeichen zu einer NullPointerExeption
-        party = Party.getListOfParties().get(0); //Totaler Blödsinn, da so immer der erste Eintrag gelesen wird
+        do {
+            System.out.println("And finally to which party belongs our new Warrior?");
+            Party.showExistingParties();
+            userInput = in.nextLine();
+            if (Party.existsParty(userInput)) {
+                party = Party.getMapOfParties().get(userInput);
+            } else {
+                System.err.println("Sorry the party " + userInput + " doesn't exist. Try again.");
+            }
+        } while (!Party.existsParty(userInput));
 
         Wizard wizard = new Wizard(hp, name, true, party, mana, intelligence);
     }
