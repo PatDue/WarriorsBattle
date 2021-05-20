@@ -12,17 +12,19 @@ public class Graveyard {
         return deadPartyMembers;
     }
 
-// Method to be called after a fight to bury a character on the graveyard
-    public static void bury(Character character){
+    // Method to be called after a fight to bury a character on the graveyard
+    public static void bury(Character character) {
         deadPartyMembers.add(character);
-        System.out.println(character +" lost all the HealthPoints and got buried on the graveyard.");
+        System.out.println(character + " lost all the HealthPoints and got buried on the graveyard.");
     }
 
+    //Method to show all members in the graveyard
+    public static void showGraveyardMembers() {
+        for (Character deadCharacter : deadPartyMembers) {
+            System.out.println(deadCharacter);
+        }
+    }
 
-// Search for dead Party members?
-//       for (Character C : deadPartyMembers){
-//        System.out.println(deadPartyMembers[C]);
-//
 
     @Override
     public String toString() {
@@ -31,5 +33,5 @@ public class Graveyard {
                 '}';
     }
 
-    
+
 }
