@@ -33,11 +33,21 @@ public class Party {
         return this.members;
     }
 
+    public ArrayList<Character> getAliveMembers(){
+        ArrayList<Character> memberAlive = new ArrayList<>();
+        for( int i = 0; i < members.size(); i++){
+            if(members.get(i).isAlive() == true){
+                memberAlive.add(members.get(i));
+            }
+        }
+        return memberAlive;
+    }
+
     public Character getRandomMember() {
         Character selectedRandomMember = null;
         Random random = new Random();
-        if (!this.getMembers().isEmpty()) {
-            selectedRandomMember = this.getMembers().get(random.nextInt(this.getMembers().size()));
+        if (!this.getAliveMembers().isEmpty()) {
+            selectedRandomMember = this.getAliveMembers().get(random.nextInt(this.getAliveMembers().size()));
         }
         return selectedRandomMember;
     }
