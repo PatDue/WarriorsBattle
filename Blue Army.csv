@@ -1,0 +1,7 @@
+CHARACTER_TYPE; id; name; hp; isAlive; party; stamina/mana; strength/intelligence
+Warrior;5c128fd9-066e-44ab-bc19-6711675502e1;Bushi;171;true;Blue Army;40;1
+Wizard;08741a8d-e55c-4268-8ce7-a7577986c25b;Discworld;162;true;Blue Army;15;39
+Warrior;91186b26-c77c-4752-9dec-f63165a83625;Artaxerxes;105;true;Blue Army;15;-1
+Wizard;db373f27-79cf-4d2a-8b3f-c6c6e7550f51;Jafar;145;true;Blue Army;35;36
+Wizard;f158a0ab-ce5f-49b7-b56e-b5c444155d1c;Regulus Black;167;true;Blue Army;38;13
+Warrior;eca58e39-25df-4cf1-aaed-efaa7532953d;Arluin;193;true;Blue Army;26;7

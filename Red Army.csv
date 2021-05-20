@@ -1,0 +1,4 @@
+CHARACTER_TYPE; id; name; hp; isAlive; party; stamina/mana; strength/intelligence
+Warrior;8eac52d6-6d69-422d-96c2-c7ba4ad3fdc1;Alexander;110;true;Red Army;14;5
+Warrior;d5e2be79-deee-49b6-869b-ff5445b2ea42;Achilles;191;true;Red Army;26;2
+Warrior;eaa6be7f-10f2-423f-a3dd-994fe1cbdf2d;Boris;134;true;Red Army;19;0
