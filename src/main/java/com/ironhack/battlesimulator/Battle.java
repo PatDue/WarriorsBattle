@@ -40,7 +40,7 @@ public class Battle {
             case "Wizard":
                 Wizard wizard = (Wizard) character;
                 System.out.println("+++++++++++++++++++++++++++++++++++++");
-                System.out.println("Name: " + wizard.getName() + " (" + chracterType + "");
+                System.out.println("Name: " + wizard.getName() + " (" + chracterType + ")");
                 System.out.println("Party: " + wizard.getParty().getPartyName());
                 System.out.println("Mana: " + wizard.getMana());
                 System.out.println("Intelligence: " + wizard.getIntelligence());
@@ -71,8 +71,6 @@ public class Battle {
 
         double d1 = this.duellist1.attack() * getPowerOfAttack(startEnduranceDuellist1, getEndurance(duellist1));
         double d2 =  this.duellist2.attack() * getPowerOfAttack(startEnduranceDuellist2, getEndurance(duellist2));
-        System.out.println("damage1 (double) " + Double.toString(d1));
-        System.out.println("damage2 (double) " + Double.toString(d2));
         givenDamageDuellist1 = (int) Math.round(d1);
         givenDamageDuellist2 = (int) Math.round(d2);
         System.out.println(this.duellist1.getName() +"("+this.duellist1.getParty().getPartyName() +") hit with damage: " + givenDamageDuellist1);
