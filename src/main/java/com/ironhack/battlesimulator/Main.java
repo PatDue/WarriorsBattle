@@ -9,9 +9,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        new BattleScreen().setVisible(true);
-        //Menue.startMenue();
+
+        //init the output windows
         GameMenu myG = new GameMenu();
+        BattleScreen myB = new BattleScreen();
+        //myB.setVisible(true);
 
         while (true) {
             try {
@@ -23,33 +25,6 @@ public class Main {
             Scanner input = new Scanner(System.in);
             String i;
             Boolean isPlaying = true;
-
-//            while (isPlaying == true) {
-//
-//                System.out.println("Start Game?");
-//                System.out.println("Start (1) ?");
-//                System.out.println("Visit Graveyard (2) ?");
-//                System.out.println("Exit (3) ?");
-//                i = input.next();
-//
-//
-//                switch (i) {
-//                    case "1":
-//                        Game game1 = new Game();
-//                        game1.startGame();
-//                        break;
-//                    case "2":
-//                        Graveyard.showGraveyardMembers();
-//                        break;
-//
-//                    case "3":
-//                        System.exit(0);
-//                    default:
-//                        System.out.println("mach es richtig !!");
-//                        break;
-//                }
-//
-//            }
         }
 
     }

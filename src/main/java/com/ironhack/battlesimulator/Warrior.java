@@ -97,14 +97,14 @@ public class Warrior extends Character implements Attacker {
 
     @Override
     public int doPowerAttack() {
-        System.out.println("Heavy attack!!!");
+        System.out.println(this.getName() + " is doing a Heavy attack!!!");
         setStamina(getStamina()-5);
         return getStrength();
     }
 
     @Override
     public int doNormalAttack() {
-        System.out.println("Weak attack!");
+        System.out.println(this.getName() + " is doing a Weak attack!");
         setStamina(getStamina()+1);
         return (int) getStrength()/2;
     }

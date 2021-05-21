@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.gui2.ActionListBox;
 import com.googlecode.lanterna.gui2.MultiWindowTextGUI;
 import com.googlecode.lanterna.gui2.WindowBasedTextGUI;
 import com.googlecode.lanterna.gui2.dialogs.ActionListDialogBuilder;
@@ -25,8 +26,7 @@ public class GameMenu {
     {
         try {
             terminalFactory = new DefaultTerminalFactory();
-            TerminalSize tSize = new TerminalSize(100,50);
-            TerminalPosition tPos = new TerminalPosition(50,50);
+            TerminalSize tSize = new TerminalSize(35,14);
             terminalFactory.setInitialTerminalSize(tSize);
             screen = terminalFactory.createScreen();
         } catch (IOException e) {
@@ -38,10 +38,6 @@ public class GameMenu {
     TextColor backC = TextColor.ANSI.BLACK;
 
 
-    public void jtest() {
-        new BattleScreen().setVisible(true);
-    }
-
     public void startMenu() throws IOException {
 
         //init screen fro game menu
@@ -50,7 +46,6 @@ public class GameMenu {
 
         // Setup WindowBasedTextGUI for dialogs
         final WindowBasedTextGUI textGUI = new MultiWindowTextGUI(screen);
-
         ActionListDialogBuilder dibuild =  new ActionListDialogBuilder().setTitle("Warrior Battle Game Menu").setDescription("Choose your step").setCanCancel(false);
         dibuild.addAction("Start Game",new Runnable() {
             @Override

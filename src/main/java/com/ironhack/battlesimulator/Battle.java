@@ -40,22 +40,26 @@ public class Battle {
             case "Wizard":
                 Wizard wizard = (Wizard) character;
                 System.out.println("+++++++++++++++++++++++++++++++++++++");
+                System.out.println("+++++++++++ Character stats  +++++++++++++");
+                System.out.println("+++++++++++++++++++++++++++++++++++++");
                 System.out.println("Name: " + wizard.getName() + " (" + chracterType + ")");
                 System.out.println("Party: " + wizard.getParty().getPartyName());
                 System.out.println("Mana: " + wizard.getMana());
                 System.out.println("Intelligence: " + wizard.getIntelligence());
                 System.out.println("HP: " + wizard.getHp());
-                System.out.println("+++++++++++++++++++++++++++++++++++++");
+                System.out.println("\n");
                 break;
             case "Warrior":
                 Warrior warrior = (Warrior) character;
+                System.out.println("+++++++++++++++++++++++++++++++++++++");
+                System.out.println("+++++++++++ Character stats  +++++++++++++");
                 System.out.println("+++++++++++++++++++++++++++++++++++++");
                 System.out.println("Name: " + warrior.getName() + " (" + chracterType + ")");
                 System.out.println("Party: " + warrior.getParty().getPartyName());
                 System.out.println("Stamina: " + warrior.getStamina());
                 System.out.println("Strength: " + warrior.getStrength());
                 System.out.println("HP: " + warrior.getHp());
-                System.out.println("+++++++++++++++++++++++++++++++++++++");
+                System.out.println("\n");
                 break;
         }
     }
@@ -65,7 +69,10 @@ public class Battle {
         int givenDamageDuellist1 = 0;
         int givenDamageDuellist2 = 0;
         System.out.println("#############################################################");
-        System.out.println("\n"+"Round:" + this.rounds);
+        System.out.println("#############################################################");
+        System.out.println("##        Round:" + this.rounds);
+        System.out.println("#############################################################");
+        System.out.println("#############################################################");
         showStatsForCharacter(duellist1.getCHARACTER_TYPE(), duellist1);
         showStatsForCharacter(duellist2.getCHARACTER_TYPE(), duellist2);
 
@@ -86,11 +93,11 @@ public class Battle {
         this.duellist1.receiveDamage(givenDamageDuellist2);
         this.duellist2.receiveDamage(givenDamageDuellist1);
         System.out.println(this.duellist1.getName() +"("+this.duellist1.getParty().getPartyName()+") has left: ");
-        System.out.println("\tHP =>" + this.duellist1.getHp());
-        System.out.println("\tis still Alive => " + this.duellist1.isAlive());
+        System.out.println("\t" + this.duellist1.getName() + " has left health points (HP) =>" + this.duellist1.getHp());
+        System.out.println("\t" + this.duellist1.getName() + " is still alive? => " + this.duellist1.isAlive());
         System.out.println(this.duellist2.getName() +"("+this.duellist2.getParty().getPartyName()+") has left: ");
-        System.out.println("\tHP =>" + this.duellist2.getHp());
-        System.out.println("\tis still Alive => " + this.duellist2.isAlive());
+        System.out.println("\t" + this.duellist2.getName() + " has left health points (HP) =>" + this.duellist2.getHp());
+        System.out.println("\t" + this.duellist2.getName() + " is still alive? => " + this.duellist2.isAlive());
         if(duellist1.isAlive() == false){
             Graveyard.bury(duellist1);
         }if (duellist2.isAlive() == false){

@@ -97,20 +97,20 @@ public class Wizard extends Character implements Attacker {
 
     @Override
     public int doPowerAttack() {
-        System.out.println("Fireball!!!!!");
+        System.out.println(this.getName() + " is throwing a Fireball!!!!!");
         setMana(getMana()-5);
         return getIntelligence();
     }
 
     @Override
     public int doNormalAttack() {
-        System.out.println("Staff hit!");
+        System.out.println(this.getName() + " is doing a Staff hit!");
         setMana(getMana() + 1);
         return 2;
     }
     @Override
     public void receiveDamage ( int damage){
-        System.out.println("new HP = getHP - damage: " + this.getHp() + " - " + damage);
+        //System.out.println("new HP = getHP - damage: " + this.getHp() + " - " + damage); for debugging
         this.setHp(this.getHp()-damage > 0 ? this.getHp()-damage : 0);
         if (this.getHp() <= 0) this.isAlive(false);
     }
